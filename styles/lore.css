@@ -72,6 +72,7 @@ header {
 }
 
 .navbar {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,6 +129,37 @@ header {
 .navbar a.active {
     background: #008000;
     border-radius: 4px;
+}
+
+/* Estilo para o botão grande roxo na navbar (tamanho aumentado) */
+.navbar .btn-roxo {
+    position: absolute;
+    top: 50%;
+    right: 120px; /* ajuste conforme necessário para mantê-lo dentro da navbar */
+    transform: translateY(-50%);
+    background-color: #800080; /* tom roxo */
+    border: none;
+    border-radius: 50% !important;
+    padding: 8px;
+    width: 90px;  /* aumentado de 60px para 90px */
+    height: 90px; /* aumentado de 60px para 90px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Aumenta o tamanho da imagem interna do botão */
+.navbar .btn-roxo img {
+    width: 60px; /* aumento de 45px para 60px */
+    height: auto;
+}
+
+/* Mantém o botão redondo mesmo no hover */
+.navbar .btn-roxo:hover {
+    border-radius: 50% !important;
+    box-shadow: 0 0 20px rgba(1, 255, 14, 0.8), 0 0 30px rgba(45, 192, 0, 0.6);
+    transition: box-shadow 0.3s ease;
 }
 
 /* Container para as imagens do teto */
