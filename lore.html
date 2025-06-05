@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore - Site do Jogo</title>
+    <link rel="stylesheet" href="styles/lore.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Container para as imagens do teto -->
+    <div class="top-image">
+        <img src="imagens/corrupt_vine.png" alt="Imagem do teto">
+        <img src="imagens/corrupt_vine.png" alt="Imagem do teto">
+        <img src="imagens/corrupt_vine.png" alt="Imagem do teto">
+    </div>
+    
+    <header>
+        <nav class="navbar">
+            <!-- Logo centralizada -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./imagens/corrupt_terraria.webp" alt="Logo do Jogo">
+                </a>
+            </div>
+            <!-- Menu de navegação -->
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="historia.html">História</a></li>
+                <li><a href="lore.html" class="active">Lore</a></li>
+                <li><a href="mecanicas.html">Mecânicas</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Imagens laterais -->
+    <div class="side-image left">
+        <img src="./imagens/corrupt_tree.webp" alt="Imagem Lateral Esquerda">
+    </div>
+    <div class="side-image right">
+        <img src="./imagens/corrupt_tree.webp" alt="Imagem Lateral Direita">
+    </div>
+    
+    <main>
+        <!-- Conteúdo principal do site -->
+        <h2>Lore do Jogo</h2>
+        <p>Bem-vindo ao universo de Terraria, onde lendas e histórias se entrelaçam com a realidade de um mundo em constante transformação. Neste espaço, você encontrará detalhes sobre mitos, contos e narrativas que enriqueceram o cenário deste jogo incrível.</p>
+        <p>Descubra os segredos dos antigos, as tradições dos habitantes e as histórias que moldaram os diversos reinos deste universo virtual. A essência do lore de Terraria se revela através de suas paisagens misteriosas e personagens enigmáticos, que juntos criam uma atmosfera única para uma aventura inesquecível.</p>
+    </main>
+    
+    <!-- Primeiro áudio de fundo -->
+    <audio autoplay loop style="display: none;">
+        <source src="audios/wind-artificial-18750.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
+    <!-- Segundo áudio de fundo -->
+    <audio autoplay loop style="display: none;">
+        <source src="audios/Terraria OST - Corruption [Extended].mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
+    <script src="scripts/lore.js"></script>
+</body>
+</html>

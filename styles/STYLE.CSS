@@ -1,0 +1,324 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Garante que não haja margens ou padding no HTML e body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Corpo com imagem de fundo definida pela URL */
+body {
+    background-image: url("./imagens/terraria_background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    color: #fdfdfd;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Pseudo-elemento simulando luz do sol */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: 
+        radial-gradient(ellipse at 50% 20%, rgba(255, 253, 200, 0.5), transparent 70%),
+        linear-gradient(to bottom, rgba(255, 255, 153, 0.15) 10%, rgba(255, 255, 204, 0.2) 50%, transparent 80%);
+    z-index: -1;
+}
+
+/* Estilo para formatação de texto comum */
+body, h1, h2, h3, p, li, a {
+    font-family: 'VT323', monospace;
+    color: #fdfdfd;
+    font-size: 1.4em;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(20,20,20,0.8);
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* Header e Navbar no seu estado original */
+header {
+    background: rgba(34,34,34,0.9);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    position: relative;  /* Comportamento normal, sem fixação */
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+/* Centraliza a logo e garante seu tamanho */
+.navbar .logo {
+    margin-bottom: 15px;
+}
+.navbar .logo img {
+    max-width: 400px;
+    border: none;
+    border-radius: 0;
+}
+
+/* Efeito de gangorra fraco para a logo */
+.logo img {
+    transform-origin: top center;
+    animation: swing 5s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Estilização da lista de navegação */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar li {
+    margin: 0 15px;
+}
+.navbar a {
+    color: #fdfdfd;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.navbar a:hover,
+.navbar a:focus,
+.navbar a.active {
+    background: #008000;
+    border-radius: 4px;
+}
+
+/* Container para as imagens "vine_1.png" do teto, exibindo-as lado a lado */
+.top-image {
+    display: flex;            /* Exibe os items em linha */
+    flex-direction: row;      /* Orienta em linha */
+    justify-content: center;  /* Centraliza horizontalmente (ou use flex-start se preferir à esquerda) */
+    align-items: center;      /* Alinha verticalmente */
+    position: absolute;       /* Posiciona em relação ao documento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;             /* Fica atrás da navbar */
+}
+
+/* Estilo opcional para as imagens do teto */
+.top-image img {
+    /* Ajuste o tamanho conforme necessário ou defina display block para remover espaçamentos */
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tamanhos personalizados para as imagens do teto */
+.top-img.small {
+    width: 350px;
+}
+.top-img.medium {
+    width: 500px;
+}
+.top-img.large {
+    width: 480px;
+}
+.top-img.extra {
+    width: 520px;
+}
+.top-img.extra2 {
+    width: 540px;
+}
+.top-img.extra-large {
+    width: 600px;
+}
+
+/* Imagens laterais */
+.side-image {
+    position: fixed;
+    bottom: 0 !important;
+    transform: translateY(10%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 8;
+}
+.side-image.left {
+    left: 10px;
+}
+.side-image.right {
+    right: 10px;
+}
+.side-image img {
+    width: 150px !important;
+    max-width: none !important;
+    height: auto !important;
+    filter: drop-shadow(20px 30px 15px rgba(0, 0, 0, 0.6));
+}
+
+/* Define o ponto de origem para a animação das imagens do teto */
+.top-image img,
+.top-images img {
+    transform-origin: top center;
+}
+
+/* Animação para efeito de vento (fluido) nas imagens do teto */
+@keyframes wind {
+    0% {
+        transform: rotate(0deg) translateX(0) skewX(0deg);
+    }
+    15% {
+        transform: rotate(2deg) translateX(1px) skewX(-1deg);
+    }
+    30% {
+        transform: rotate(4deg) translateX(2px) skewX(-2deg);
+    }
+    45% {
+        transform: rotate(2deg) translateX(1px) skewX(-1deg);
+    }
+    60% {
+        transform: rotate(-2deg) translateX(-1px) skewX(1deg);
+    }
+    75% {
+        transform: rotate(-4deg) translateX(-2px) skewX(2deg);
+    }
+    90% {
+        transform: rotate(-2deg) translateX(-1px) skewX(1deg);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0) skewX(0deg);
+    }
+}
+
+/* Aplica o efeito de vento às imagens do teto */
+.top-image img,
+.top-images img {
+    animation: wind 5s ease-in-out infinite;
+    filter: drop-shadow(20px 30px 15px rgba(0, 0, 0, 0.6));
+}
+
+/* Timers personalizados para imagens do container .top-images */
+.top-images img:nth-child(1) {
+    animation-duration: 4s;
+}
+.top-images img:nth-child(2) {
+    animation-duration: 5s;
+}
+.top-images img:nth-child(3) {
+    animation-duration: 6s;
+}
+.top-images img:nth-child(4) {
+    animation-duration: 7s;
+}
+.top-images img:nth-child(5) {
+    animation-duration: 4.5s;
+}
+.top-images img:nth-child(6) {
+    animation-duration: 5.5s;
+}
+.top-images img:nth-child(7) {
+    animation-duration: 6.5s;
+}
+.top-images img:nth-child(8) {
+    animation-duration: 7.5s;
+}
+
+/* Timers personalizados para imagens do container .top-image */
+.top-image img:nth-child(1) {
+    animation-duration: 3.7s;
+}
+.top-image img:nth-child(2) {
+    animation-duration: 4.2s;
+}
+.top-image img:nth-child(3) {
+    animation-duration: 4.8s;
+}
+
+/* Estilos para títulos com linha decorativa */
+h2, h3 {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2::after, h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #008000;
+}
+
+/* Estilo para a área de texto */
+.exemplo-text {
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    background: #fff;
+    border: 2px solid #007700;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Georgia', serif;
+    color: #222;
+    line-height: 1.8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.exemplo-text h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #007700;
+    padding-bottom: 10px;
+}
+.exemplo-text h2 {
+    font-size: 1;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007700;
+    padding-bottom: 5px;
+    color: #333;
+}
+.exemplo-text p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 10px 0;
+}
