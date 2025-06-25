@@ -53,6 +53,7 @@ body, h1, h2, h3, p, li, a {
 /* Estilo para o conteúdo principal */
 main {
     max-width: 900px;
+    width: 90%; /* Permite ajuste em telas menores */
     margin: 40px auto;
     padding: 20px;
     background: rgba(20,20,20,0.8);
@@ -71,47 +72,32 @@ header {
     z-index: 10;
 }
 
+/* Navbar padronizada para todas as seções do site */
 .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
+    position: relative;
+    padding: 10px;
 }
 
-/* Centraliza a logo e garante seu tamanho */
+/* Logo posicionada acima do menu */
 .navbar .logo {
     margin-bottom: 15px;
 }
 .navbar .logo img {
     max-width: 400px;
-    border: none;
-    border-radius: 0;
+    width: 100%;
 }
 
-/* Efeito de gangorra fraco para a logo */
-.logo img {
-    transform-origin: top center;
-    animation: swing 5s ease-in-out infinite;
-}
-
-@keyframes swing {
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(3deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* Estilização da lista de navegação */
+/* Menu de navegação centralizado */
 .navbar ul {
     list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 .navbar li {
     margin: 0 15px;
@@ -128,6 +114,28 @@ header {
 .navbar a.active {
     background: #008000;
     border-radius: 4px;
+}
+
+/* Botão especial (mantém forma redonda) */
+.navbar .btn-roxo {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #800080;
+    border: none;
+    border-radius: 50% !important;
+    padding: 8px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.navbar .btn-roxo img {
+    width: 80px;
+    height: auto;
 }
 
 /* Container para as imagens "vine_1.png" do teto, exibindo-as lado a lado */
@@ -321,4 +329,30 @@ h2::after, h3::after {
     font-size: 1em;
     line-height: 1.5;
     margin: 10px 0;
+}
+
+/* Media queries para telas pequenas */
+@media screen and (max-width: 600px) {
+    /* Ajusta a navbar para linhas */
+    .navbar {
+        flex-direction: column;
+    }
+    
+    /* Reposiciona o botão para ficar dentro do novo layout */
+    .navbar .btn-roxo {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px 0;
+    }
+    
+    /* Diminui ligeiramente o tamanho do botão em dispositivos pequenos */
+    .navbar .btn-roxo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .navbar .btn-roxo img {
+        width: 60px;
+    }
 }

@@ -16,4 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Outras funcionalidades comuns podem ser adicionadas aqui...
+
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.navbar ul li a').forEach(link => {
+        // Remove "active" de todos os links
+        link.classList.remove('active');
+        // Se o href do link corresponde à página atual, aplica "active"
+        if(link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
 });

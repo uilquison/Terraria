@@ -53,6 +53,7 @@ body, h1, h2, h3, p, li, a {
 /* Estilo para o conteúdo principal */
 main {
     max-width: 900px;
+    width: 90%; /* Permite ajuste em telas menores */
     margin: 40px auto;
     padding: 20px;
     background: rgba(20,20,20,0.8);
@@ -71,22 +72,70 @@ header {
     z-index: 10;
 }
 
+/* Navbar padronizada para todas as seções do site */
 .navbar {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
+    position: relative;
+    padding: 10px;
 }
 
-/* Centraliza a logo e garante seu tamanho */
+/* Logo posicionada acima do menu */
 .navbar .logo {
     margin-bottom: 15px;
 }
 .navbar .logo img {
     max-width: 400px;
+    width: 100%;
+}
+
+/* Menu de navegação centralizado */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar li {
+    margin: 0 15px;
+}
+.navbar a {
+    color: #fdfdfd;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.navbar a:hover,
+.navbar a:focus,
+.navbar a.active {
+    background: #008000;
+    border-radius: 4px;
+}
+
+/* Botão especial (mantém forma redonda) */
+.navbar .btn-roxo {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #800080;
     border: none;
-    border-radius: 0;
+    border-radius: 50% !important;
+    padding: 8px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.navbar .btn-roxo img {
+    width: 80px;
+    height: auto;
 }
 
 /* Efeito de gangorra fraco para a logo */
@@ -131,35 +180,27 @@ header {
     border-radius: 4px;
 }
 
-/* Estilo para o botão grande roxo na navbar (tamanho aumentado) */
+/* Estilo para o botão grande roxo na navbar */
 .navbar .btn-roxo {
     position: absolute;
     top: 50%;
-    right: 120px; /* ajuste conforme necessário para mantê-lo dentro da navbar */
+    right: 20px; /* Ajusta a distância em telas menores */
     transform: translateY(-50%);
-    background-color: #800080; /* tom roxo */
+    background-color: #800080;
     border: none;
     border-radius: 50% !important;
     padding: 8px;
-    width: 90px;  /* aumentado de 60px para 90px */
-    height: 90px; /* aumentado de 60px para 90px */
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
-/* Aumenta o tamanho da imagem interna do botão */
+/* Aumenta ou diminui o tamanho da imagem interna conforme desejado */
 .navbar .btn-roxo img {
-    width: 60px; /* aumento de 45px para 60px */
+    width: 80px;
     height: auto;
-}
-
-/* Mantém o botão redondo mesmo no hover */
-.navbar .btn-roxo:hover {
-    border-radius: 50% !important;
-    box-shadow: 0 0 20px rgba(1, 255, 14, 0.8), 0 0 30px rgba(45, 192, 0, 0.6);
-    transition: box-shadow 0.3s ease;
 }
 
 /* Container para as imagens do teto */
@@ -292,4 +333,95 @@ h2::after, h3::after {
     width: 100%;
     height: 2px;
     background-color: #008000;
+}
+
+/* Estilização base para o container das animações */
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Estilo para as imagens animadas ao redor */
+.animated-image {
+    width: 80px;
+    height: auto;
+    opacity: 1;  /* Mantém sempre visíveis */
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+/* Keyframes para a animação de flutuação */
+@keyframes floatAnimation {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Media queries para telas pequenas */
+@media screen and (max-width: 600px) {
+    /* Ajusta a navbar para linhas */
+    .navbar {
+        flex-direction: column;
+    }
+    
+    /* Reposiciona o botão para ficar dentro do novo layout */
+    .navbar .btn-roxo {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px 0;
+    }
+    
+    /* Diminui ligeiramente o tamanho do botão em dispositivos pequenos */
+    .navbar .btn-roxo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .navbar .btn-roxo img {
+        width: 60px;
+    }
+}
+
+/* Efeito de fogo verde retro no hover do botão */
+.navbar .btn-roxo:hover {
+    border-radius: 50% !important;
+    animation: fireGreen 1.5s ease-in-out infinite;
+}
+
+@keyframes fireGreen {
+    0% {
+        box-shadow: 
+            0 0 5px rgba(0,255,0,0.5),
+            0 0 10px rgba(0,255,0,0.5),
+            0 0 15px rgba(0,204,0,0.5);
+    }
+    50% {
+        box-shadow: 
+            0 0 15px rgba(0,255,0,0.8),
+            0 0 20px rgba(0,255,0,0.8),
+            0 0 25px rgba(0,204,0,0.8);
+    }
+    100% {
+        box-shadow: 
+            0 0 5px rgba(0,255,0,0.5),
+            0 0 10px rgba(0,255,0,0.5),
+            0 0 15px rgba(0,204,0,0.5);
+    }
+}
+
+/* Animação de flutuação combinando a rotação base com translateY */
+@keyframes float {
+    0% { transform: rotate(var(--base-rotation)) translateY(0px); }
+    50% { transform: rotate(var(--base-rotation)) translateY(-10px); }
+    100% { transform: rotate(var(--base-rotation)) translateY(0px); }
+}
+
+/* Aplica a animação de flutuação nas imagens pequenas */
+.animated-image {
+    animation: float 3s ease-in-out infinite;
 }
